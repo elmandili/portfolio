@@ -1,0 +1,37 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Aymane EL MANDILI portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmandili/portfolio.git"
+  },
+  "keywords": [
+    "Aymane",
+    "Aymane",
+    "EL",
+    "MANDILI",
+    "aymane",
+    "el",
+    "mandili",
+    "aymane",
+    "developer",
+    "coding",
+    "web",
+    "developer"
+  ],
+  "author": "Aymane EL MANDILI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elmandili/portfolio/issues"
+  },
+  "homepage": "https://github.com/elmandili/portfolio#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}
