@@ -907,7 +907,7 @@ Gaming Library Style
 
 .gaming-library .item ul li {
   display: inline-block;
-  width: 17%;
+  width: 30%;
 }
 
 .gaming-library .item ul li:first-child {
@@ -1001,6 +1001,7 @@ Featured Games Style
 
 .featured-games .item img {
   border-radius: 23px;
+  width: 100px;
 }
 
 .featured-games .item h4 {
@@ -1065,6 +1066,25 @@ Featured Games Style
   opacity: 1;
   color: #ec6090;
 }
+
+.featured-games .item .thumb img {
+  width: 100%;
+   /* Adjust the height as needed */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border-radius: 23px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .top-downloaded {
   border-radius: 23px;

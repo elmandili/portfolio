@@ -1,0 +1,29 @@
+{
+    "data":[
+        {
+            "img": "images/spiderman-boss.gif",
+            "title": "title",
+            "link": "#"
+        },
+        {
+            "img": "images/featured-01.jpg",
+            "title": "title",
+            "link": "#"
+        },
+        {
+            "img": "images/featured-01.jpg",
+            "title": "title",
+            "link": "#"
+        },
+        {
+            "img": "images/featured-01.jpg",
+            "title": "title",
+            "link": "#"
+        },
+        {
+            "img": "images/featured-01.jpg",
+            "title": "title",
+            "link": "#"
+        }
+    ]
+}
