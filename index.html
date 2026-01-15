@@ -2,376 +2,443 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aymane EL MANDILI — Portfolio</title>
-    <meta name="description" content="Portfolio of Aymane EL MANDILI — Computer Science & Machine Learning." />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aymane EL MANDILI — Portfolio</title>
+  <meta name="description" content="Portfolio of Aymane EL MANDILI — Computer Science & Machine Learning." />
+
+  <!-- Icons (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-    <!-- Header -->
-    <header class="header" id="top">
-        <div class="container header__inner">
-            <a class="logo" href="#top" aria-label="Go to top">
-                <span class="logo__mark">A</span>
-                <span class="logo__text">Aymane EL MANDILI</span>
+<body id="top">
+  <!-- Decorative blobs -->
+  <div class="blob blob--1" aria-hidden="true"></div>
+  <div class="blob blob--2" aria-hidden="true"></div>
+  <div class="blob blob--3" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Go to top">
+        <span class="logo__mark"><img src="assets/about-2.jpg" alt="" width="100%"></span>
+        <span class="logo__text">Aymane</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="nav__menu" id="navMenu">
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#skills">Skills</a></li>
+          <li><a class="nav__link" href="#projects">Projects</a></li>
+          <li><a class="nav__link" href="#research">Research</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <div class="chip">
+            <i class="fa-solid fa-sparkles"></i>
+            <span>Computer Science • ML • Deep Learning • Computer Vision</span>
+          </div>
+
+          <h1 class="hero__title">
+            Hi, I’m <span class="accent">Aymane EL MANDILI</span>.
+          </h1>
+
+          <p class="hero__subtitle">
+            I build machine learning and computer vision projects, and I also do full-stack web development.
+          </p>
+
+          <div class="hero__meta">
+            <span class="pill"><i class="fa-solid fa-location-dot"></i> Nanjing, China</span>
+            <span class="pill"><i class="fa-solid fa-graduation-cap"></i> M.Sc. Computer Technology (CSC Scholar)</span>
+          </div>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projects"><i class="fa-solid fa-folder-open"></i> View Projects</a>
+            <a class="btn btn--ghost" href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+          </div>
+
+          <div class="hero__links">
+            <a class="link" href="https://github.com/elmandili" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
             </a>
-
-            <nav class="nav" aria-label="Primary">
-                <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-
-                <ul class="nav__menu" id="navMenu">
-                    <li><a class="nav__link" href="#about">About</a></li>
-                    <li><a class="nav__link" href="#skills">Skills</a></li>
-                    <li><a class="nav__link" href="#projects">Projects</a></li>
-                    <li><a class="nav__link" href="#research">Research</a></li>
-                    <li><a class="nav__link" href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <a class="link" href="https://www.linkedin.com/in/elmandili-aymane-657915225/" target="_blank"
+              rel="noreferrer">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <a class="link" href="assets/cv.pdf" target="_blank" rel="noreferrer">
+              <i class="fa-solid fa-file-pdf"></i> CV
+            </a>
+            <a class="link" href="https://www.youtube.com/@aymane_code" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-youtube"></i> YouTube
+            </a>
+            <a class="link" href="https://www.tiktok.com/@aymane_code" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-tiktok"></i> TikTok
+            </a>
+          </div>
         </div>
-    </header>
 
-    <!-- Hero -->
-    <main>
-        <section class="hero">
-            <div class="container hero__grid">
-                <div class="hero__content">
-                    <p class="eyebrow">Computer Science • ML • Computer Vision</p>
-                    <h1 class="hero__title">
-                        Hi, I’m <span class="accent">Aymane EL MANDILI</span>.
-                    </h1>
-                    <p class="hero__subtitle">
-                        I build machine learning and computer vision projects, and I also do full-stack web development.
-                    </p>
-
-                    <div class="hero__meta">
-                        <span class="pill">Nanjing, China</span>
-                        <span class="pill">M.Sc. Computer Technology (CSC Scholar)</span>
-                    </div>
-
-                    <div class="hero__actions">
-                        <a class="btn btn--primary" href="#projects">View Projects</a>
-                        <a class="btn btn--ghost" href="#contact">Contact</a>
-                    </div>
-
-                    <div class="hero__links">
-                        <a class="link" href="https://github.com/elmandili" target="_blank" rel="noreferrer">
-                            <i class="fa-brands fa-github"></i>
-                            GitHub
-                        </a>
-
-                        <a class="link" href="https://www.linkedin.com/in/elmandili-aymane-657915225/" target="_blank"
-                            rel="noreferrer">
-                            <i class="fa-brands fa-linkedin"></i>
-                            LinkedIn
-                        </a>
-
-                        <a class="link" href="assets/cv.pdf" target="_blank" rel="noreferrer">
-                            <i class="fa-solid fa-file-pdf"></i>
-                            CV
-                        </a>
-
-                        <a class="link" href="https://www.youtube.com/@aymane_code" target="_blank" rel="noreferrer">
-                            <i class="fa-brands fa-youtube"></i>
-                            YouTube
-                        </a>
-
-                        <a class="link" href="https://www.tiktok.com/@aymane_code" target="_blank" rel="noreferrer">
-                            <i class="fa-brands fa-tiktok"></i>
-                            TikTok
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="hero__card">
-                    <div class="profile">
-                        <div class="profile__photo" aria-hidden="true">
-                            <!-- Optional image -->
-                            <img style="border-radius: 14px;" src="assets/profile.jpg" alt="Aymane profile photo" />
-                        </div>
-                        <div class="profile__info">
-                            <h2 class="profile__name">Aymane EL MANDILI</h2>
-                            <p class="profile__role">Computer Science Engineer</p>
-
-                            <ul class="profile__list">
-                                <li><span class="label">Email:</span> <a
-                                        href="mailto:elmandilimail@gmail.com">elmandilimail@gmail.com</a></li>
-                                <li><span class="label">Phone:</span> <a href="tel:+8618851819683">+86 188 5181 9683</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="stats">
-                        <div class="stat">
-                            <p class="stat__num">100+</p>
-                            <p class="stat__label">beginner developer taught</p>
-                        </div>
-                        <div class="stat">
-                            <p class="stat__num">3rd</p>
-                            <p class="stat__label">Prize NJUPT software dev competition</p>
-                        </div>
-                        <div class="stat">
-                            <p class="stat__num">AI/ML</p>
-                            <p class="stat__label">AI and ML research focus</p>
-                        </div>
-                        <div class="stat">
-                            <p class="stat__num">IBM certified</p>
-                            <p class="stat__label">in Machine Learning</p>
-                        </div>
-                        <div class="stat">
-                            <p class="stat__num">Jiangsu award</p>
-                            <p class="stat__label">chinese student innovation competition</p>
-                        </div>
-                    </div>
-                </div>
+        <aside class="hero__card reveal">
+          <div class="profile">
+            <div class="profile__photo">
+              <img src="assets/profile.jpg" alt="Aymane profile photo" />
             </div>
-        </section>
 
-        <!-- About -->
-        <section class="section" id="about">
-            <div class="container">
-                <div class="section__head">
-                    <h2>About</h2>
-                    <p>
-                        I’m a Computer Science researcher and developer focusing on machine learning, deep learning, and
-                        computer vision.
-                        I enjoy building practical systems, optimizing models, and shipping usable software.
-                    </p>
-                </div>
 
-                <div class="cards">
-                    <article class="card">
-                        <h3>Education</h3>
-                        <ul class="list">
-                            <li><strong>M.Sc. Computer Technology</strong> — NJUPT</li>
-                            <li><strong>B.Sc. Computer Science</strong> — NJUPT
-                            </li>
-                        </ul>
-                    </article>
+            <div class="profile__info">
+              <h2 class="profile__name">Aymane EL MANDILI</h2>
+              <p class="profile__role">ML / CV Engineer • Full-Stack Developer</p>
 
-                    <article class="card">
-                        <h3>What I do</h3>
-                        <ul class="list">
-                            <li>ML pipelines: EDA, feature engineering, model training, evaluation</li>
-                            <li>Computer Vision: real-time detection, edge optimization</li>
-                            <li>Web apps: Node.js / Express.js / Angular</li>
-                        </ul>
-                    </article>
-                </div>
+              <div class="profile__contacts">
+                <a class="mini" href="mailto:elmandilimail@gmail.com">
+                  <i class="fa-solid fa-envelope"></i> elmandilimail@gmail.com
+                </a>
+                <a class="mini" href="tel:+8618851819683">
+                  <i class="fa-solid fa-phone"></i> +86 188 5181 9683
+                </a>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- Skills -->
-        <section class="section" id="skills">
-            <div class="container">
-                <div class="section__head">
-                    <h2>Skills</h2>
-                    <p>Core tools I use across ML research and product development.</p>
-                </div>
-
-                <div class="skillGrid">
-                    <div class="skillBlock">
-                        <h3>Programming</h3>
-                        <div class="tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Java</span>
-                            <span class="tag">C</span>
-                            <span class="tag">C++</span>
-                            <span class="tag">Matlab</span>
-                        </div>
-                    </div>
-
-                    <div class="skillBlock">
-                        <h3>Machine Learning</h3>
-                        <div class="tags">
-                            <span class="tag">EDA</span>
-                            <span class="tag">Feature Engineering</span>
-                            <span class="tag">Deep Learning</span>
-                            <span class="tag">Computer Vision</span>
-                            <span class="tag">Model Evaluation</span>
-                        </div>
-                    </div>
-
-                    <div class="skillBlock">
-                        <h3>Web Development</h3>
-                        <div class="tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Express.js</span>
-                            <span class="tag">Angular</span>
-                            <span class="tag">REST APIs</span>
-                        </div>
-                    </div>
-                </div>
+          <div class="stats">
+            <div class="stat">
+              <p class="stat__num">100+</p>
+              <p class="stat__label">Students taught</p>
             </div>
-        </section>
-
-        <!-- Projects -->
-        <section class="section" id="projects">
-            <div class="container">
-                <div class="section__head">
-                    <h2>Projects</h2>
-                    <!-- <p>Replace these cards with your real projects (screenshots + links).</p> -->
-                </div>
-
-                <div class="cards">
-                    <article class="card project">
-                        <div class="project__top">
-                            <h3>Smart Window System</h3>
-                            <span class="badge">IoT + DL</span>
-                        </div>
-                        <p>
-                            Smart window system for air quality control and threat detection using deep learning.
-                        </p>
-                        <div class="project__links">
-                            <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer">Repo</a>
-                            <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer">Demo</a>
-                        </div>
-                    </article>
-
-                    <article class="card project">
-                        <div class="project__top">
-                            <h3>ACMA Fire Detection Framework</h3>
-                            <span class="badge">Edge AI</span>
-                        </div>
-                        <p>
-                            Adaptive Conditional Model Activation (ACMA) framework for efficient real-time fire
-                            detection on edge devices.
-                        </p>
-                        <div class="project__links">
-                            <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer">Paper</a>
-                            <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer">Code</a>
-                        </div>
-                    </article>
-
-                    <article class="card project">
-                        <div class="project__top">
-                            <h3>Golden-Fantastic company management system</h3>
-                            <span class="badge">Node + Express</span>
-                        </div>
-                        <p>
-                            private management system for travel agency to store and track and store travels and
-                            travelers informations.
-                        </p>
-                        <div class="project__links">
-                            <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer">Repo</a>
-                            <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer">Live</a>
-                        </div>
-                    </article>
-                </div>
+            <div class="stat">
+              <p class="stat__num">STITP winner</p>
+              <p class="stat__label">Province level research funding winner</p>
             </div>
-        </section>
-
-        <!-- Research -->
-        <section class="section" id="research">
-            <div class="container">
-                <div class="section__head">
-                    <h2>Research</h2>
-                    <p>Selected research directions and publications (add DOI/links when ready).</p>
-                </div>
-
-                <div class="timeline">
-                    <div class="timeline__item">
-                        <div class="timeline__dot" aria-hidden="true"></div>
-                        <div class="timeline__content">
-                            <h3>ACMA: Real-Time Fire Detection on Edge Devices</h3>
-                            <p>
-                                Efficient conditional activation approach designed for edge deployment and real-time
-                                constraints.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline__item">
-                        <div class="timeline__dot" aria-hidden="true"></div>
-                        <div class="timeline__content">
-                            <h3>Smart Window System for Air Quality & Threat Detection</h3>
-                            <p>
-                                Combines sensing, automation, and deep learning to control airflow and detect threats.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat">
+              <p class="stat__num">3rd prize winner</p>
+              <p class="stat__label">NJUPT software dev competition</p>
             </div>
-        </section>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-        <!-- Contact -->
-        <section class="section" id="contact">
-            <div class="container">
-                <div class="section__head">
-                    <h2>Contact</h2>
-                    <p>Want to collaborate or hire me? Send a message.</p>
-                </div>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head about__intro reveal">
+          <div class="about__text">
+            <h2>About</h2>
+            <p>
+              I’m a Computer Science researcher and developer focusing on machine learning,
+              deep learning, and computer vision. I build practical systems,
+              optimize models, and ship usable software.
+            </p>
+          </div>
 
-                <div class="contact">
-                    <form class="form" id="contactForm" action="https://formspree.io/f/xzddpvbr" method="POST">
-                        <input type="hidden" name="_subject" value="New message from portfolio site" />
-                        <div class="form__row">
-                            <label class="form__label" for="name">Name</label>
-                            <input class="form__input" id="name" name="name" type="text" placeholder="Your name"
-                                required />
-                            <p class="form__error" data-error-for="name"></p>
-                        </div>
-
-                        <div class="form__row">
-                            <label class="form__label" for="email">Email</label>
-                            <input class="form__input" id="email" name="email" type="email" placeholder="you@email.com"
-                                required />
-                            <p class="form__error" data-error-for="email"></p>
-                        </div>
-
-                        <div class="form__row">
-                            <label class="form__label" for="message">Message</label>
-                            <textarea class="form__input form__textarea" id="message" name="message" rows="5"
-                                placeholder="Your message..." required></textarea>
-                            <p class="form__error" data-error-for="message"></p>
-                        </div>
-
-                        <button class="btn btn--primary" type="submit">Send</button>
-                        <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
-                    </form>
-
-                    <div class="contact__side">
-                        <div class="card">
-                            <h3>Direct</h3>
-                            <p class="muted">You can also reach me here:</p>
-                            <ul class="list">
-                                <li><strong>Email:</strong> <a
-                                        href="mailto:elmandilimail@gmail.com">elmandilimail@gmail.com</a></li>
-                                <li><strong>Phone:</strong> <a href="tel:+8618851819683">+86 188 5181 9683</a></li>
-                                <li><strong>Location:</strong> Nanjing, China</li>
-                            </ul>
-                        </div>
-
-                        <!-- <div class="card">
-                            <h3>Quick links</h3>
-                            <div class="tags">
-                                <a class="tag tag--link" href="#" target="_blank" rel="noreferrer">GitHub</a>
-                                <a class="tag tag--link" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-                                <a class="tag tag--link" href="#" target="_blank" rel="noreferrer">CV PDF</a>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer__inner">
-            <p>© <span id="year"></span> Aymane EL MANDILI. All rights reserved.</p>
-            <a class="link" href="#top">Back to top ↑</a>
+          <div class="about__images">
+            <img src="assets/about-1.jpg" alt="Aymane working" />
+            <img src="assets/about-2.jpg" alt="Aymane presenting or coding" />
+            <img src="assets/about-3.jpg" alt="Aymane daily life or campus" />
+          </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+
+
+        <div class="grid3">
+          <article class="card reveal">
+            <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+            <ul class="list">
+              <li><strong>M.Sc. Computer Technology</strong> — Nanjing University of Posts and Telecommunications (CSC
+                Scholarship)</li>
+              <li><strong>B.Sc. Computer Science</strong> — NUPT (Tech club president, competition awards)</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3><i class="fa-solid fa-bolt"></i> What I do</h3>
+            <ul class="list">
+              <li>ML pipelines: EDA, feature engineering, model training, evaluation</li>
+              <li>Computer Vision: real-time detection, edge optimization</li>
+              <li>Web apps: Node.js / Express.js / Angular</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3><i class="fa-solid fa-star"></i> Focus</h3>
+            <ul class="list">
+              <li>Clean, fast, deployment-ready solutions</li>
+              <li>Strong documentation & maintainable code</li>
+              <li>Research-to-product mindset</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2>Skills</h2>
+          <p>Core tools I use across ML research and product development.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="card reveal">
+            <h3><i class="fa-solid fa-code"></i> Programming</h3>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span>
+              <span class="tag">C++</span><span class="tag">Matlab</span><span class="tag">C# Unity</span><span
+                class="tag">shell</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3><i class="fa-solid fa-brain"></i> Machine Learning</h3>
+            <div class="tags">
+              <span class="tag">EDA</span><span class="tag">Feature Engineering</span><span class="tag">Deep
+                Learning</span>
+              <span class="tag">Computer Vision</span><span class="tag">Model Evaluation</span><span
+                class="tag">Supervised ML</span>
+              <span class="tag">Unsupervised ML</span><span class="tag">Neural Network</span><span
+                class="tag">Algebra</span><span class="tag">Calculus</span><span class="tag">Statisctics</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3><i class="fa-solid fa-layer-group"></i> Web Development</h3>
+            <div class="tags">
+              <span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">Angular</span><span
+                class="tag">TypeScript</span>
+              <span class="tag">REST APIs</span><span class="tag">SQL</span><span class="tag">NoSQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2>Projects</h2>
+        </div>
+
+        <div class="grid3">
+          <article class="card card--hover reveal">
+            <span class="badge"><i class="fa-solid fa-microchip"></i> IoT + DL</span>
+            <div class="card__top">
+              <h3>Smart Window System for Air Quality Control and Threat Detection based on Deep Learning</h3>
+            </div>
+            <p class="muted">
+              Smart window system for air quality control and threat detection using deep learning.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--small btn--ghost" href="https://doi.org/10.1108/SR-08-2025-0571" target="_blank"
+                rel="noreferrer"><i class="fa-solid fa-file-lines"></i> Paper</a>
+              <!-- <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a> -->
+            </div>
+          </article>
+
+          <article class="card card--hover reveal">
+            <span class="badge"><i class="fa-solid fa-fire"></i> Edge AI</span>
+            <div class="card__top">
+              <h3>ACMA: An Adaptive Conditional Model Activation Framework for Efficient Real-Time Fire Detection on
+                Edge Devices</h3>
+            </div>
+            <p class="muted">
+              Adaptive Conditional Model Activation (ACMA) framework for efficient real-time fire detection on edge
+              devices.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer"><i
+                  class="fa-solid fa-file-lines"></i>paper under review</a>
+              <!-- <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> Code</a> -->
+            </div>
+          </article>
+
+          <article class="card card--hover reveal">
+            <span class="badge"><i class="fa-solid fa-globe"></i> EDA + Feature Engineering + ML</span>
+            <div class="card__top">
+              <h3>Unsupervised Learning on MNIST Dimensionality Reduction Clustering and Analysis</h3>
+            </div>
+            <p class="muted">
+              Example portfolio-ready project: authentication, CRUD, dashboard UI, and API integration.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--small btn--ghost"
+                href="https://github.com/elmandili/Unsupervised-Learning-on-MNIST-Dimensionality-Reduction-Clustering"
+                target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> Repo</a>
+              <!-- <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a> -->
+            </div>
+          </article>
+
+          <article class="card card--hover reveal">
+            <span class="badge">Express.js + Node.js + OpenAI api</span>
+            <div class="card__top">
+              <h3>Happy Daily Mail</h3>
+            </div>
+            <p class="muted">An AI Powered Website that allows user to send AI generated stories, layout and images to
+              their friend's email</p>
+            <div class="card__actions">
+              <a class="btn btn--small btn--ghost" href="https://github.com/elmandili/happy-mail" target="_blank"
+                rel="noreferrer"><i class="fa-brands fa-github"></i> Repo</a>
+              <!-- <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a> -->
+            </div>
+          </article>
+
+          <article class="card card--hover reveal">
+            <span class="badge">EDA + Data Analysis + ML</span>
+            <div class="card__top">
+              <h3>Comparative Study of Machine Learning Models for Human Activity Recognition</h3>
+            </div>
+            <p class="muted">This project focuses on building and comparing several machine learning models to classify human physical activities using smartphone sensor data.</p>
+            <div class="card__actions">
+              <a class="btn btn--small btn--ghost" href="https://github.com/elmandili/Comparative-Study-of-Machine-Learning-Models-for-Human-Activity-Recognition" target="_blank"
+                rel="noreferrer"><i class="fa-brands fa-github"></i> Repo</a>
+              <!-- <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a> -->
+            </div>
+          </article>
+          <article class="card card--hover reveal">
+            <span class="badge">EDA + ML</span>
+            <div class="card__top">
+              <h3>Customer Churn Prediction and Driver Analysis</h3>
+            </div>
+            <p class="muted">
+              This project applies supervised machine learning techniques to predict customer churn and to analyze the
+              main factors that influence customer attrition.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--small btn--ghost"
+                href="https://github.com/elmandili/Customer-Churn-Classification-Report" target="_blank"
+                rel="noreferrer"><i class="fa-brands fa-github"></i> Repo</a>
+              <!-- <a class="btn btn--small btn--ghost" href="#" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a> -->
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2>Research</h2>
+          <p>Selected research directions and publications (add DOI/links when ready).</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline__item card reveal">
+            <div class="timeline__title">
+              <span class="dot"></span>
+              <h3>ACMA: Real-Time Fire Detection on Edge Devices</h3>
+            </div>
+            <p class="muted">
+              Efficient conditional activation approach designed for edge deployment and real-time constraints.
+            </p>
+          </div>
+
+          <div class="timeline__item card reveal">
+            <div class="timeline__title">
+              <span class="dot"></span>
+              <h3>Smart Window System for Air Quality & Threat Detection</h3>
+            </div>
+            <p class="muted">
+              Combines sensing, automation, and deep learning to control airflow and detect threats.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2>Contact</h2>
+          <p>Want to collaborate or hire me? Send a message.</p>
+        </div>
+
+        <div class="contact">
+          <!-- If you're using Formspree, put your URL in action -->
+          <form class="card form reveal" id="contactForm" method="POST" action="https://formspree.io/f/xzddpvbr">
+            <input type="hidden" name="_subject" value="New message from portfolio site" />
+
+            <div class="form__row">
+              <label class="form__label" for="name">Name</label>
+              <input class="form__input" id="name" name="name" type="text" placeholder="Your name" required />
+              <p class="form__error" data-error-for="name"></p>
+            </div>
+
+            <div class="form__row">
+              <label class="form__label" for="email">Email</label>
+              <input class="form__input" id="email" name="email" type="email" placeholder="you@email.com" required />
+              <p class="form__error" data-error-for="email"></p>
+            </div>
+
+            <div class="form__row">
+              <label class="form__label" for="message">Message</label>
+              <textarea class="form__input form__textarea" id="message" name="message" rows="5"
+                placeholder="Your message..." required></textarea>
+              <p class="form__error" data-error-for="message"></p>
+            </div>
+
+            <button class="btn btn--primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Send</button>
+            <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+            <p class="muted tiny">Tip: set Formspree URL in the form action to enable real submissions.</p>
+          </form>
+
+          <aside class="contact__side">
+            <div class="card reveal">
+              <h3><i class="fa-solid fa-address-card"></i> Direct</h3>
+              <ul class="list">
+                <li><strong>Email:</strong> <a class="inline"
+                    href="mailto:elmandilimail@gmail.com">elmandilimail@gmail.com</a></li>
+                <li><strong>Phone:</strong> <a class="inline" href="tel:+8618851819683">+86 188 5181 9683</a></li>
+                <li><strong>Location:</strong> Nanjing, China</li>
+              </ul>
+            </div>
+
+            <div class="card reveal">
+              <h3><i class="fa-solid fa-link"></i> Quick links</h3>
+              <div class="tags">
+                <a class="tag tag--link" href="https://github.com/elmandili" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="tag tag--link" href="https://www.linkedin.com/in/elmandili-aymane-657915225/" target="_blank"
+                  rel="noreferrer">LinkedIn</a>
+                <a class="tag tag--link" href="assets/cv.pdf" target="_blank" rel="noreferrer">CV</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Aymane EL MANDILI. All rights reserved.</p>
+      <a class="link" href="#top"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+    </div>
+  </footer>
+
+  <!-- Floating Back-to-top button -->
+  <button class="toTop" id="toTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
 </body>
 
 </html>

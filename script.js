@@ -1,14 +1,20 @@
-// --------- Helpers ----------
+// Helpers
 const $ = (sel, parent = document) => parent.querySelector(sel);
 const $$ = (sel, parent = document) => Array.from(parent.querySelectorAll(sel));
 
-// --------- Mobile menu ----------
+// ---------------- Mobile menu (burger -> X) ----------------
 const navToggle = $("#navToggle");
 const navMenu = $("#navMenu");
 
 function setNavOpen(isOpen) {
   navMenu.classList.toggle("is-open", isOpen);
   navToggle.setAttribute("aria-expanded", String(isOpen));
+
+  const icon = navToggle.querySelector("i");
+  if (icon) {
+    icon.classList.toggle("fa-bars", !isOpen);
+    icon.classList.toggle("fa-xmark", isOpen);
+  }
 }
 
 navToggle?.addEventListener("click", () => {
@@ -16,84 +22,27 @@ navToggle?.addEventListener("click", () => {
   setNavOpen(!isOpen);
 });
 
-// Close menu when clicking a link (mobile)
-$$(".nav__link").forEach((link) => {
-  link.addEventListener("click", () => setNavOpen(false));
-});
+// close on link click (mobile)
+$$(".nav__link").forEach((a) => a.addEventListener("click", () => setNavOpen(false)));
 
-// Close menu when clicking outside (mobile)
+// close on outside click
 document.addEventListener("click", (e) => {
-  const clickedInside = navMenu.contains(e.target) || navToggle.contains(e.target);
-  if (!clickedInside) setNavOpen(false);
+  if (!navMenu || !navToggle) return;
+  const inside = navMenu.contains(e.target) || navToggle.contains(e.target);
+  if (!inside) setNavOpen(false);
 });
 
-// --------- Active link highlight on scroll (steady) ----------
-const sectionIds = ["about", "skills", "projects", "research", "contact"];
-const sections = sectionIds
-  .map((id) => document.getElementById(id))
-  .filter(Boolean);
+// close on ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") setNavOpen(false);
+});
 
-const navLinks = Array.from(document.querySelectorAll(".nav__link"));
-
-function setActiveLink(id) {
-  navLinks.forEach((a) => {
-    const isActive = a.getAttribute("href") === `#${id}`;
-    a.classList.toggle("is-active", isActive);
-  });
-}
-
-// Throttle to keep scrolling smooth
-let ticking = false;
-
-function onScroll() {
-  if (ticking) return;
-  ticking = true;
-
-  window.requestAnimationFrame(() => {
-    const headerH = document.querySelector(".header")?.offsetHeight ?? 0;
-    const offset = headerH + 20; // small gap under sticky header
-
-    // Pick the section whose top is closest to the offset (but not too far below)
-    let currentId = sections[0]?.id || sectionIds[0];
-    let bestDistance = Infinity;
-
-    for (const sec of sections) {
-      const rect = sec.getBoundingClientRect();
-      const distance = Math.abs(rect.top - offset);
-
-      // Prefer sections that have already reached the offset area (top <= offset + small buffer)
-      // This prevents jumping to the next section too early.
-      if (rect.top <= offset + 80 && distance < bestDistance) {
-        bestDistance = distance;
-        currentId = sec.id;
-      }
-    }
-
-    // Edge cases: very top / very bottom
-    if (window.scrollY < 10) currentId = sectionIds[0];
-
-    const nearBottom =
-      window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
-    if (nearBottom) currentId = sectionIds[sectionIds.length - 1];
-
-    setActiveLink(currentId);
-    ticking = false;
-  });
-}
-
-// Run once + listen
-window.addEventListener("scroll", onScroll, { passive: true });
-window.addEventListener("resize", onScroll);
-onScroll();
-
-
-// --------- Smooth scroll offset for sticky header ----------
-document.querySelectorAll('a[href^="#"]').forEach((a) => {
+// ---------------- Smooth scroll (with #top support) ----------------
+$$('a[href^="#"]').forEach((a) => {
   a.addEventListener("click", (e) => {
     const href = a.getAttribute("href");
     if (!href || href === "#") return;
 
-    // Special case: top
     if (href === "#top") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -101,19 +50,90 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     }
 
     const target = document.querySelector(href);
-    if (!target) return; // let browser do nothing if target doesn't exist
+    if (!target) return;
 
     e.preventDefault();
     const headerH = document.querySelector(".header")?.offsetHeight ?? 0;
     const top = target.getBoundingClientRect().top + window.scrollY - headerH - 10;
-
     window.scrollTo({ top, behavior: "smooth" });
   });
 });
 
-// --------- Contact form (simple validation + fake submit) ----------
-const form = document.getElementById("contactForm");
-const formNote = document.getElementById("formNote");
+// ---------------- Steady active link highlight ----------------
+const sectionIds = ["about", "skills", "projects", "research", "contact"];
+const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+const navLinks = $$(".nav__link");
+
+function setActiveLink(id) {
+  navLinks.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${id}`));
+}
+
+let ticking = false;
+function onScrollActive() {
+  if (ticking) return;
+  ticking = true;
+
+  requestAnimationFrame(() => {
+    const headerH = document.querySelector(".header")?.offsetHeight ?? 0;
+    const offset = headerH + 24;
+
+    let currentId = sectionIds[0];
+    let best = Infinity;
+
+    for (const sec of sections) {
+      const rect = sec.getBoundingClientRect();
+      const dist = Math.abs(rect.top - offset);
+
+      // prevents early jumping
+      if (rect.top <= offset + 120 && dist < best) {
+        best = dist;
+        currentId = sec.id;
+      }
+    }
+
+    if (window.scrollY < 10) currentId = sectionIds[0];
+    const nearBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
+    if (nearBottom) currentId = sectionIds[sectionIds.length - 1];
+
+    setActiveLink(currentId);
+    ticking = false;
+  });
+}
+
+window.addEventListener("scroll", onScrollActive, { passive: true });
+window.addEventListener("resize", onScrollActive);
+onScrollActive();
+
+// ---------------- Reveal animations on scroll ----------------
+const revealEls = $$(".reveal");
+const revealObs = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("is-visible");
+        revealObs.unobserve(e.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+revealEls.forEach((el) => revealObs.observe(el));
+
+// ---------------- Floating back-to-top button ----------------
+const toTop = $("#toTop");
+function updateToTop() {
+  const show = window.scrollY > 600;
+  toTop?.classList.toggle("is-visible", show);
+}
+window.addEventListener("scroll", updateToTop, { passive: true });
+updateToTop();
+
+toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+// ---------------- Contact form (real submission via Formspree if action is set) ----------------
+const form = $("#contactForm");
+const formNote = $("#formNote");
 
 function setError(fieldName, message) {
   const p = document.querySelector(`[data-error-for="${fieldName}"]`);
@@ -127,9 +147,9 @@ function validateEmail(email) {
 form?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const name = document.getElementById("name")?.value.trim() || "";
-  const email = document.getElementById("email")?.value.trim() || "";
-  const message = document.getElementById("message")?.value.trim() || "";
+  const name = $("#name")?.value.trim() || "";
+  const email = $("#email")?.value.trim() || "";
+  const message = $("#message")?.value.trim() || "";
 
   let ok = true;
   setError("name", "");
@@ -137,22 +157,18 @@ form?.addEventListener("submit", async (e) => {
   setError("message", "");
   formNote.textContent = "";
 
-  if (name.length < 2) {
-    setError("name", "Please enter your name.");
-    ok = false;
-  }
-  if (!validateEmail(email)) {
-    setError("email", "Please enter a valid email.");
-    ok = false;
-  }
-  if (message.length < 10) {
-    setError("message", "Message must be at least 10 characters.");
-    ok = false;
-  }
+  if (name.length < 2) { setError("name", "Please enter your name."); ok = false; }
+  if (!validateEmail(email)) { setError("email", "Please enter a valid email."); ok = false; }
+  if (message.length < 10) { setError("message", "Message must be at least 10 characters."); ok = false; }
 
   if (!ok) return;
 
-  // REAL submission
+  // If no action is set, show a helpful message
+  if (!form.action || form.action.trim() === window.location.href) {
+    formNote.textContent = "Set your Formspree URL in the form action to enable real submissions.";
+    return;
+  }
+
   try {
     formNote.textContent = "Sending...";
     const formData = new FormData(form);
@@ -168,10 +184,12 @@ form?.addEventListener("submit", async (e) => {
       form.reset();
     } else {
       const data = await res.json().catch(() => null);
-      formNote.textContent =
-        data?.errors?.[0]?.message || "❌ Something went wrong. Please try again.";
+      formNote.textContent = data?.errors?.[0]?.message || "❌ Something went wrong. Try again.";
     }
-  } catch (err) {
+  } catch {
     formNote.textContent = "❌ Network error. Please try again.";
   }
 });
+
+// Footer year
+$("#year").textContent = String(new Date().getFullYear());
