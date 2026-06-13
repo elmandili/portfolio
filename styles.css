@@ -1,7 +1,7 @@
 /* Modern Portfolio Theme — soft neon, glass cards, blobs, animations */
 
 :root{
-  --bg0:#070a12;
+  --bg0:#001219;
   --bg1:#0b1020;
   --panel: rgba(255,255,255,.06);
   --panel2: rgba(255,255,255,.08);
@@ -24,11 +24,7 @@ body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
   color:var(--text);
-  background:
-    radial-gradient(1000px 600px at 10% 10%, rgba(124,92,255,.22), transparent 60%),
-    radial-gradient(900px 520px at 90% 15%, rgba(25,195,125,.14), transparent 60%),
-    radial-gradient(700px 520px at 50% 90%, rgba(59,130,246,.12), transparent 60%),
-    linear-gradient(180deg, var(--bg0), var(--bg1));
+  background-color: var(--bg0);
   line-height:1.65;
   overflow-x:hidden;
 }
@@ -43,20 +39,6 @@ a{color:inherit;text-decoration:none}
 
 .tiny{ font-size: .9rem; }
 
-/* Decorative blobs */
-.blob{
-  position: fixed;
-  width: 520px;
-  height: 520px;
-  filter: blur(40px);
-  opacity: .25;
-  border-radius: 999px;
-  z-index: -1;
-  transform: translateZ(0);
-}
-.blob--1{ top: -220px; left: -180px; background: radial-gradient(circle, var(--accent), transparent 65%); }
-.blob--2{ top: -160px; right: -220px; background: radial-gradient(circle, var(--accent2), transparent 65%); }
-.blob--3{ bottom: -240px; left: 20%; background: radial-gradient(circle, var(--accent3), transparent 65%); }
 
 /* Header */
 .header{
@@ -79,7 +61,7 @@ a{color:inherit;text-decoration:none}
   width: 36px; height: 36px;
   display:grid; place-items:center;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(25,195,125,.7));
+  background: #7c5cfff2;
   box-shadow: 0 12px 26px rgba(0,0,0,.35);
   overflow: hidden;
 }
@@ -115,7 +97,7 @@ a{color:inherit;text-decoration:none}
 }
 .nav__link.is-active{
   color: var(--text);
-  background: linear-gradient(135deg, rgba(124,92,255,.22), rgba(25,195,125,.14));
+  background: #7c5cff38;
   border-color: rgba(124,92,255,.35);
 }
 
@@ -168,7 +150,7 @@ a{color:inherit;text-decoration:none}
 .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18) }
 .btn--primary{
   border-color: transparent;
-  background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(25,195,125,.78));
+  background: #7c5cfff2;
 }
 .btn--ghost{ background: rgba(255,255,255,.05) }
 .btn--small{ padding:.5rem .7rem; border-radius: 14px; font-size:.95rem }
@@ -194,7 +176,7 @@ a{color:inherit;text-decoration:none}
 
 /* Cards */
 .card{
-  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.05));
+  /* background: #ffffff12; */
   border:1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.05rem;
@@ -229,8 +211,6 @@ a{color:inherit;text-decoration:none}
 .hero__card::before{
   content:"";
   position:absolute; inset:-2px;
-  background: radial-gradient(420px 220px at 20% 0%, rgba(124,92,255,.22), transparent 60%),
-              radial-gradient(420px 220px at 80% 10%, rgba(25,195,125,.16), transparent 60%);
   opacity:.9;
   pointer-events:none;
 }
@@ -401,12 +381,11 @@ a{color:inherit;text-decoration:none}
 
 /* Contact */
 .contact{
-  display:grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 1rem;
-  align-items: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.form{ display:grid; gap:.85rem }
+.form{width: 80%;}
 .form__row{ display:grid; gap:.35rem }
 .form__label{ color: var(--muted); font-size:.95rem }
 .form__input{
